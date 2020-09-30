@@ -27,15 +27,25 @@ double *golf_input(double *arr, int *count)
     cout << "Enter at most 10 grades of golf, you can stop input anytime: ";
 
     double grade;
-    cin >> grade;
-//TODO: try to let input stop when enter hit
-    while (grade >= 0)
+    char ch;
+    ch = cin.get();
+
+    if (ch=='\n')
+        
+    while (ch=='\n')
+    {
+        /* code */
+    }
+    
+
+    //TODO: try to let input stop when enter hit
+    while ()
     {
         *(arr + (*count)) = grade;
         (*count)++;
 
-        if ((*count) < 2)
-            cin >> grade;
+        if ((*count) < 10)
+            grade = cin.get();
         else
             break;
     }
