@@ -3,9 +3,7 @@
 using namespace std;
 
 double *golf_input(double *arr, int *count);
-
 double golf_calc(const double *arr, int count);
-
 void golf_display(const double *arr, int count, double average);
 
 int main()
@@ -24,32 +22,15 @@ int main()
 
 double *golf_input(double *arr, int *count)
 {
-    cout << "Enter at most 10 grades of golf, you can stop input anytime: ";
+    cout << "Enter at most 10 scores of golf, enter 'q' to quit, you can stop input anytime: ";
 
-    double grade;
-    char ch;
-    ch = cin.get();
+    double score;
 
-    if (ch=='\n')
-        
-    while (ch=='\n')
+    while (cin >> score && (*count) <= 10)
     {
-        /* code */
-    }
-    
-
-    //TODO: try to let input stop when enter hit
-    while ()
-    {
-        *(arr + (*count)) = grade;
+        *(arr + (*count)) = score;
         (*count)++;
-
-        if ((*count) < 10)
-            grade = cin.get();
-        else
-            break;
     }
-
     return arr;
 }
 
@@ -66,11 +47,11 @@ double golf_calc(const double *arr, int count)
 
 void golf_display(const double *arr, int count, double average)
 {
-    cout << "The grades are: ";
+    cout << "The inputed scores are: ";
     for (int i = 0; i < count; i++)
     {
         cout << *(arr + i) << " ";
     }
     cout << '\n';
-    cout << "The average grade is " << average << '\n';
+    cout << "The average score is " << average << '\n';
 }
