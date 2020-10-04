@@ -19,18 +19,18 @@ int main()
     return 0;
 }
 
-void show(const char **pa, int seasons, double *da)
-{
-    for (int i = 0; i < seasons; i++)
-    {
-        cout << *(pa + i) << ":\t" << *(da + i) << endl;
-    }
-}
-
 void fill(double *da, int seasons)
 {
     cout << "Enter expenses for 4 seasons(Spring to Winter): ";
 
     for (int i = 0; i < seasons; i++)
         cin >> *(da + i);
+}
+
+void show(const char **pa, int seasons, double *da)
+{
+    for (int i = 0; i < seasons; i++)
+    {
+        cout << *(pa + i) << ":\t" << *(da + i) << endl;
+    }
 }
