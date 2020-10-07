@@ -16,7 +16,7 @@ int setgolf(golf &g)
     std::cin.getline(g.fullname, Len);
 
     // empty string return 0
-    if (g.fullname == "\0")
+    if (!strcmp(g.fullname,""))
         return 0;
 
     std::cout << "Enter the golf handicap: ";
@@ -34,6 +34,6 @@ void handicap(golf &g, int hc)
 //display
 void showgolf(const golf &g)
 {
-    std::cout << "Fullname: " << g.fullname << std::endl
+    std::cout  << "Fullname: " << g.fullname << std::endl
               << "Handicap: " << g.handicap << std::endl;
 }
