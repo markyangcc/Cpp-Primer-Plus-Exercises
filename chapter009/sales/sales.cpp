@@ -1,4 +1,4 @@
-#include "sales.h"
+#include "namespace.h"
 #include <iostream>
 
 namespace SALES
@@ -19,7 +19,7 @@ namespace SALES
         s.max = max_num;
         s.min = min_num;
 
-        double total;
+        double total = 0;
         for (int i = 0; i < n; i++)
             total += s.sales[i];
 
@@ -42,7 +42,7 @@ namespace SALES
         s.max = max_num;
         s.min = min_num;
 
-        double total;
+        double total = 0;
         for (int i = 0; i < QUARTES; i++)
             total += s.sales[i];
 
@@ -50,8 +50,13 @@ namespace SALES
     }
     void showSales(const Sales &s)
     {
-        std::cout << "sales: " << s.sales << std::endl
-                  << "max: " << s.max << std::endl
+        std::cout << "sales: ";
+        for (int i = 0; i < QUARTES; i++)
+            std::cout << s.sales[i] << "  ";
+
+        std::cout << std::endl;
+
+        std::cout << "max: " << s.max << std::endl
                   << "min: " << s.min << std::endl
                   << "average: " << s.average << std::endl;
     }
