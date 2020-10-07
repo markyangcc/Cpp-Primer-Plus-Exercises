@@ -52,7 +52,7 @@ int getinfo(student pa[], int n)
         cout << "full name: ";
         cin.getline(pa[i].fullname, SLEN);
 
-        if (*(pa[i].fullname) == '\0')
+        if ((pa[i].fullname) == "\0")
             break;
 
         cout << "hobby: ";
