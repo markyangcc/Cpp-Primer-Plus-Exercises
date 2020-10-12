@@ -1,8 +1,6 @@
-// vect.h -- Vector class with <<, mode state
-// Note: this is listing 11.13 in Stephen Prata's C++ Primer Plus
-
 #ifndef VECTOR_H_
 #define VECTOR_H_
+
 #include <iostream>
 
 namespace VECTOR
@@ -38,5 +36,6 @@ namespace VECTOR
         friend Vector operator*(double n, const Vector &a);
         friend std::ostream &operator<<(std::ostream &os, const Vector &v);
     };
-} // namespace VECTOR
+} 
+
 #endif
