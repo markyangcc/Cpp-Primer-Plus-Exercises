@@ -11,29 +11,17 @@ void List::add(Item a)
 bool List::isEmpty()
 {
     if (top == 0)
-    {
-      
         return true;
-    }
     else
-    {
-       // std::cout << "The List is not empty" << std::endl;
         return false;
-    }
 }
 
 bool List::isFull()
 {
     if (top == Len)
-    {
-        // std::cout << "The List is full" << std::endl;
         return true;
-    }
     else
-    {
-        // std::cout << "The List is not full" << std::endl;
         return false;
-    }
 }
 
 void List::show() const
