@@ -1,5 +1,7 @@
-#ifndef Mytime_H_
-#define Mytime_H_
+#ifndef Mytime3_H_
+#define Mytime3_H_
+
+#include <iostream>
 
 class Time
 {
@@ -14,16 +16,11 @@ public:
     void addhr(int h);
     void reset(int h = 0, int m = 0);
     Time operator+(const Time &t) const;
-    void show() const;
-    ~Time();
+    Time operator-(const Time &t) const;
+    Time operator*(double n) const;
+
+    friend Time operator*(double m, const Time &t) { return t * m; } //inline definition
+    friend std::ostream &operator<<(std::ostream &os, const Time &t);
 };
-
-Time::Time()
-{
-}
-
-Time::~Time()
-{
-}
 
 #endif
