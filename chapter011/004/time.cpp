@@ -23,38 +23,40 @@ void Time::addhr(int h)
     hours += h;
 }
 
-void Time::reset(int h , int m )
+void Time::reset(int h, int m)
 {
     hours = h;
     minutes = m;
 }
 
-Time Time::operator+(const Time &t) const
+//friend function is the member of class, so don't need to TIme:: before the func name
+Time operator+(const Time &t1, const Time &t2)
 {
     Time sum;
-    sum.minutes = minutes + t.minutes;
-    sum.hours = hours + sum.minutes / 60;
+    sum.minutes = t1.minutes + t2.minutes;
+    sum.hours = t1.hours + sum.minutes / 60;
     sum.minutes %= 60;
 
     return sum;
 }
-Time Time::operator-(const Time &t) const
+
+Time operator-(const Time &t1, const Time &t2)
 {
     Time diff;
     int tot1, tot2;
 
-    tot1 = t.minutes + 60 * t.hours;
-    tot2 = minutes + 60 * hours;
-    diff.minutes = (tot2 - tot1) % 60;
-    diff.hours = (tot2 - tot1) / 60;
+    tot1 = t1.minutes + 60 * t1.hours;
+    tot2 = t2.minutes + 60 * t2.hours;
+    diff.minutes = (tot1 - tot2) % 60;
+    diff.hours = (tot1 - tot2) / 60;
 
     return diff;
 }
 
-Time Time::operator*(double mult) const
+Time operator*(double mult, const Time &t)
 {
     Time result;
-    long totalminutes = hours * mult * 60 + minutes * mult;
+    long totalminutes = t.hours * mult * 60 + t.minutes * mult;
     result.hours = totalminutes / 60;
     result.minutes = totalminutes % 60;
 
