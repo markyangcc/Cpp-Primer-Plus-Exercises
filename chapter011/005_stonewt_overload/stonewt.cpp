@@ -65,10 +65,17 @@ std::ostream &operator<<(std::ostream &os, const Stonewt &s)
         os << "Mode " << s.mode << endl
            << int(s.pounds) << " pounds" << endl;
     }
+    else if (s.mode == '3')
+    {
+        os << "Mode " << s.mode << endl
+           << s.pounds << " pounds" << endl;
+    }
     else
     {
-         os << "Mode " << s.mode << endl
-             << s.pounds << " pounds" << endl;
+        //default print format
+        os << "Mode " << s.mode << endl
+           << s.pounds << " pounds" << endl
+           << s.stone << " stone, " << s.pds_left << " pounds" << endl;
     }
 
     return os;
