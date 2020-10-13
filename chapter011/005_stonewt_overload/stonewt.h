@@ -1,5 +1,6 @@
 #ifndef Stonewt_H_
 #define Stonewt_H_
+
 #include <iostream>
 
 class Stonewt
@@ -17,12 +18,10 @@ private:
                      //mode 3 for fractional pounds
 
 public:
-    Stonewt(double lbs, char mo );
-    Stonewt(int stn, double lbs, char );
+    Stonewt(double lbs, char mo);
+    Stonewt(int stn, double lbs, char mo);
     Stonewt();
     ~Stonewt();
-    void show_lbs() const;
-    void show_stn() const;
 
     friend Stonewt operator+(const Stonewt &s1, const Stonewt &s2);
     friend Stonewt operator-(const Stonewt &s1, const Stonewt &s2);
