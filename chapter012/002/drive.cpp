@@ -1,5 +1,6 @@
 #include "str.cpp"
 #include <iostream>
+
 using namespace std;
 
 int main(void)
@@ -9,7 +10,7 @@ int main(void)
     String s3;
     cout << s2;
     cin >> s3;
-    s2 = "My name is  " + s3;
+    s2 = const_cast<char *>("My name is  ") + s3;
     cout << s2 << ".\n";
     s2 = s2 + s1;
     s2.stringup();

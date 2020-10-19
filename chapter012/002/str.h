@@ -24,13 +24,21 @@ public:
     char &operator[](int i);
     const char &operator[](int i) const;
 
+    void stringup();
+    void stringlow();
+
+    int has(char c);
+
     friend bool operator<(const String &st1, const String &st2);
     friend bool operator>(const String &st1, const String &st2);
     friend bool operator==(const String &st1, const String &st2);
-    friend bool operator<<(const String &st1, const String &st2);
-    friend bool operator>>(const String &st1, const String &st2);
+    friend String operator+(char *, const String &st);
+    friend String operator+(const String &st1, const String &st2);
+    friend String operator+(const String &st, const char *s);
 
-    static int HowMany();
+    friend std::ostream &operator<<(std::ostream &os, const String &st);
+    friend std::istream &operator>>(std::istream &is,  String &st);
+
 };
 
 #endif
