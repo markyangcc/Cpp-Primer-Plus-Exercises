@@ -5,10 +5,8 @@
 Stack::Stack(int n)
 {
     pitems = new Item[n];
-    size = n;
+    size = 0;
     top = 0;
-    
-    std::cout<<"Hello, you have reach here";
 }
 
 //copy constructor
@@ -50,12 +48,11 @@ bool Stack::push(const Item &item)
         return false;
 }
 
-bool Stack::pop(Item &item)
+bool Stack::pop()
 {
     if (size > 0)
     {
         top--;
-        item = pitems[top];
         size--;
         return true;
     }
@@ -86,7 +83,7 @@ std::ostream &operator<<(std::ostream &os, const Stack &st)
 
     for (int i = 0; i < st.top; i++)
     {
-        os << "item " << i + 1 << ": " << (st.pitems)[i] << endl;
+        os << '\t' << "item " << i + 1 << ": " << (st.pitems)[i] << endl;
     }
 
     return os;

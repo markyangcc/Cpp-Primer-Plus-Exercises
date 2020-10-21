@@ -25,7 +25,7 @@ public:
     bool isempty() const;
     bool isfull() const;
     bool push(const Item &item);
-    bool pop(Item &item);
+    bool pop(); //pop() doesn't need any anguments
 
     Stack &operator=(const Stack &st);
 

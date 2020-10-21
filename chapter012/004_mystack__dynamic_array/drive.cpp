@@ -14,11 +14,21 @@ int main()
 
         st1.push(a);
         st1.push(b);
-        cout << st1;
-        //  st1.pop(&st1);
-        //cout << st1;
 
-        //Stack st3 = st2;
+        cout << "After pushed, Stack st1:" << endl;
+        cout << st1;
+
+        st1.pop();
+        cout << "After poped one item, Stack st1:" << endl;
+        cout << st1;
+
+        Stack st3 = st1;
+
+        cout << "Stack st3: " << endl;
+        cout << st3;
+
+        cout << "Stack st2: " << endl;
+        cout << st2;
 
         return 0;
     }
