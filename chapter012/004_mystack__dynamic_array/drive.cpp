@@ -1,39 +1,25 @@
 #include "mystack.cpp"
 
-inline void printStack(Stack s) { std::cout << s; }
 int main()
 {
-    using namespace std;
-    
-    cout << "setting s1..." << endl;
-    Stack s1;
-    cout << "setting s2..." << endl;
-    Stack s2(5);
-    cout << "setting s3..." << endl;
-    Stack s3(-1);
-    cout << "setting s4..." << endl;
-    Stack s4 = Stack(10);
-    cout << "setting s5..." << endl;
-    Stack s5(s4);
-    cout << "setting s6..." << endl;
-    Stack s6 = Stack(s3);
+    {
+        using std::cout;
+        using std::endl;
 
-    cout << "s1.isempty() == " << s1.isempty() << endl;
-    s1.push(10);
-    s1.push(20);
-    s1.push(30);
+        Stack st1;
+        Stack st2;
 
-    s2 = s1;
-    unsigned long int x;
-    s2.pop(x);
-    cout << "We pushed 10, 20, and 30 into s1" << endl;
-    cout << "We assigned s2 to s1" << endl;
-    cout << "s2.pop(x), x = " << x << endl;
+        Item a = 1;
+        Item b = 2;
 
-    cout << "s1: " << endl;
-    printStack(s1);
-    cout << "s2: " << endl
-         << s2;
+        st1.push(a);
+        st1.push(b);
+        cout << st1;
+        //  st1.pop(&st1);
+        //cout << st1;
 
-    return 0;
+        //Stack st3 = st2;
+
+        return 0;
+    }
 }

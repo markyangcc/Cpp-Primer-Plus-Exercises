@@ -8,7 +8,7 @@ Stack::Stack(int n)
     size = n;
     top = 0;
     
-    // std::cout<<"Hello, you have reach here";
+    std::cout<<"Hello, you have reach here";
 }
 
 //copy constructor
