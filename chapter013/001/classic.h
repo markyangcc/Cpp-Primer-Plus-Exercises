@@ -11,7 +11,7 @@ private:
 public:
     Classic();
 
-    Classic(char *w, char *s1, char *s2, int n, double x);
+    Classic(const char *w, const char *s1, const char *s2, int n, double x);
     Classic(const Cd &d, char *w);
     Classic(const Classic &c);
 

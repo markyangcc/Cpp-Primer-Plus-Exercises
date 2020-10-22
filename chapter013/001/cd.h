@@ -11,7 +11,7 @@ private:
 
 public:
     Cd();
-    Cd(char *s1, char *s2, int n, double x);
+    Cd(const char *s1, const char *s2, int n, double x);
     Cd(const Cd &d);
     virtual ~Cd();
 

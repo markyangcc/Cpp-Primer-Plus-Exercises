@@ -7,7 +7,7 @@ Classic::Classic() : Cd()
     work[0] = '\0';
 }
 
-Classic::Classic(char *w, char *s1, char *s2, int n, double x) : Cd(s1, s2, n, x)
+Classic::Classic(const char *w, const char *s1, const char *s2, int n, double x) : Cd(s1, s2, n, x)
 {
     strcpy(work, w);
 }
