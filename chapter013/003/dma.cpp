@@ -52,18 +52,11 @@ std::ostream &operator<<(std::ostream &os, const abcDMA &rs)
 }
 
 //base DMA
-baseDMA::baseDMA(const char *la, int r) : abcDMA(la, r)
-{
-}
+baseDMA::baseDMA(const char *la, int r) : abcDMA(la, r) {}
 
-baseDMA::baseDMA(const baseDMA &rs) : abcDMA(rs)
-{
-}
+baseDMA::baseDMA(const baseDMA &rs) : abcDMA(rs) {}
 
-baseDMA::~baseDMA()
-{
-    // abcDMA::~abcDMA();
-}
+baseDMA::~baseDMA() {}
 
 void baseDMA::View() const
 {
@@ -93,10 +86,7 @@ lackDMA::lackDMA(const char *c, const lackDMA &rs) : abcDMA(rs)
     strcpy(color, rs.color);
 }
 
-lackDMA::~lackDMA()
-{
-    // abcDMA::~abcDMA();
-}
+lackDMA::~lackDMA() {}
 
 void lackDMA::View() const
 {
