@@ -2,20 +2,21 @@
 #include <cstring>
 
 //not for sure for style(init)
-VintagePort::VintagePort() : Port() //style neccessary = "vintage"
+VintagePort::VintagePort() : Port("The Noble", "vintage") //style neccessary = "vintage"
 {
-    nickname = new char[1];
-    nickname[0] = '\0';
+    nickname = new char[5];
+    strcpy(nickname, "none");
 
     year = 0;
 }
-VintagePort::VintagePort(const char *br, int b, const char *nm, int y) : Port(br, "vintage", b)
+VintagePort::VintagePort(const char *br, int b, const char *nm, int y) : Port("The Noble", "vintage", b)
 {
     nickname = new char[strlen(nm) + 1];
     strcpy(nickname, nm);
     year = y;
 }
-VintagePort::VintagePort(const VintagePort &vp) : Port(vp)
+
+VintagePort::VintagePort(const VintagePort &vp) : Port((const Port &)vp)
 {
     nickname = new char[strlen(vp.nickname) + 1];
     strcpy(nickname, vp.nickname);
@@ -27,7 +28,7 @@ VintagePort &VintagePort::operator=(const VintagePort &vp)
     if (this == &vp)
         return *this;
 
-    Port(vp);
+    Port((const Port &)vp); //  (const Port &) is necessary
     delete[] nickname;
     nickname = new char[strlen(vp.nickname) + 1];
     strcpy(nickname, vp.nickname);
