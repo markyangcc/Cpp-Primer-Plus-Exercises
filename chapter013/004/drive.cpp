@@ -1,3 +1,9 @@
+
+// Q1: port.cpp
+// Q2: As for virtual functions in base class, it's necessary to redefine them
+// Q3: Assignment operator and friend function are not allow to be inherited in C++
+// Q4: vintageport.cpp
+
 #include "port.cpp"
 #include "vintageport.cpp"
 
