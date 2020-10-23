@@ -51,3 +51,8 @@ $ g++ <filename where main() function in> -o myprogram && ./myprogram
 	(cause just copy the pointer will cause many problems. When delete the location one of the pointer to, the other pointers will be have no-where to pointe to. Many times, the output value will not meet your expectations)
 
 	3 Learn to write copy constructor and self-overload assignment operater to avoid the problems mentioned in point 2
+
+### chapter 13
+	1 Learn to derive a class
+	2 Learn to use Abstract Base Class (ABC) to inherit
+	3 Learn when should ddefine a virtual function and when not to
