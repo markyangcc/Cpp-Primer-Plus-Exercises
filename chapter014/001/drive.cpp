@@ -7,7 +7,6 @@ int main(void) {
   using std::cout;
   using std::endl;
 
-
   cout << "Enter name of wine: ";
   char lab[50];
   cin.getline(lab, 50);
