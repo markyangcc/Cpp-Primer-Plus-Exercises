@@ -7,8 +7,10 @@ Wine::Wine(const char *l, int y, const int yr[], const int bot[]) {
   name = l;
   year = y;
 
-  //   info.first.resize(year);
-  //   info.second.resize(year);
+  // if not set the valarray size(it will default to zero) ,it will cause
+  // Segmentation fault (core dumped)
+  info.first.resize(year);
+  info.second.resize(year);
 
   for (int i = 0; i < year; i++) {
     info.first[i] = yr[i];
@@ -25,8 +27,13 @@ void Wine::GetBottles() {
   using std::cin;
   using std::cout;
 
+  // if not set the valarray size(it will default to zero) ,it will cause
+  // Segmentation fault (core dumped)
+  info.first.resize(year);
+  info.second.resize(year);
+
   for (int i = 0; i < year; i++) {
-    cout << "Line[" << i + 1 << "]: ";
+    cout << "Line[" << i << "]: ";
     cout << "Enter the year: ";
     cin >> info.first[i];
     cout << "Enter the bottles: ";
