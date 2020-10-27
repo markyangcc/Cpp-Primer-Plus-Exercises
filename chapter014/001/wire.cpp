@@ -27,7 +27,7 @@ void Wine::GetBottles() {
   using std::cin;
   using std::cout;
 
-  // if not set the valarray size(it will default to zero) ,it will cause
+  // if not set the valarray size(it will default to zero) ,it willcause
   // Segmentation fault (core dumped)
   info.first.resize(year);
   info.second.resize(year);
