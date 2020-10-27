@@ -47,4 +47,5 @@ void Wine::Show() const {
   for (int i = 0; i < info.first.size(); i++) {
     cout << info.first[i] << info.second[i] << endl;
   }
+  
 }
