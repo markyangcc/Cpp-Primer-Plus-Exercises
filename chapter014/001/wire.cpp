@@ -52,6 +52,6 @@ void Wine::Show() const {
   cout << "Year and bottles:";
 
   for (int i = 0; i < info.first.size(); i++) {
-    cout << info.first[i] << info.second[i] << endl;
+    cout << info.first[i] << '\t' << info.second[i] << endl;
   }
 }

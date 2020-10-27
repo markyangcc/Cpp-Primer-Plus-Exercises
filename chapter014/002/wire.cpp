@@ -7,6 +7,10 @@ Wine::Wine(const char *l, int y, const int yr[], const int bot[])
     : string(l), PairArray(ArrayInt(y), ArrayInt(y)) {
   year = y;
 
+  // set valarray size
+  PairArray::first.resize(year);
+  PairArray::second.resize(year);
+
   for (int i = 0; i < year; i++) {
     PairArray::first[i] = yr[i];
     PairArray::second[i] = bot[i];
@@ -19,6 +23,7 @@ void Wine::GetBottles() {
   using std::cin;
   using std::cout;
 
+  // set valarray size
   PairArray::first.resize(year);
   PairArray::second.resize(year);
 
