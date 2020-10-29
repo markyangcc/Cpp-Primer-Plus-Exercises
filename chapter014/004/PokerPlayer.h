@@ -14,10 +14,10 @@ private:
     const int MIN_RANGE = 1;
     const int MAX_RANGE = 52;
 public:
-    int Draw();//return random num from 1-52
+    int Draw() const;//return random num from 1-52
 };
 
-int PokerPlayer::Draw() {
+int PokerPlayer::Draw() const {
 
     srand(time(NULL));
     return std::rand() % MAX_RANGE + MIN_RANGE;

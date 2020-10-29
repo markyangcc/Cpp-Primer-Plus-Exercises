@@ -17,7 +17,7 @@ private:
 public:
     double GDraw() const;
 
-    int Cdraw();
+    int Cdraw() const { return PokerPlayer::Draw(); }
 
     void set_time();
 
@@ -27,11 +27,6 @@ public:
 double BadDude::GDraw() const
 {
     return draw_time;
-}
-
-int BadDude::Cdraw()
-{
-    return PokerPlayer::Draw();
 }
 
 void BadDude::set_time()
@@ -52,7 +47,7 @@ void BadDude::Show() const
     Gunslinger::Show();
 
     cout << "Bad gun draw gun time: " << GDraw() << endl;
-    cout << "Bad gun card number: " <<  Cdraw()<< endl;
+    cout << "Bad gun card number: " << Cdraw() << endl;
 }
 
 #endif //CPP_BADDUDE_H
