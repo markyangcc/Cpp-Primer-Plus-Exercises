@@ -19,10 +19,10 @@ private:
 
 public:
     Queuetp();
-    Queuetp(const Queuetp<Type> &q);
+
     ~Queuetp();
     bool enqueue(const Type &val);
-    bool dequeue(const Type &val);
+    bool dequeue(Type &val);
     bool isempty();
     Type peek() const;
 };
@@ -33,27 +33,9 @@ Queuetp<Type>::Queuetp()
     head = nullptr;
     tail = nullptr;
 }
-template <typename Type>
-
-Queuetp<Type>::Queuetp(const Queuetp<Type> &q)
-{
-    // Node *t = q.tail;
-    // while (t != NULL) {
-    //   enqueue(t->data);
-    // }
-}
 
 template <typename Type>
-Queuetp<Type>::~Queuetp()
-{
-    while (head != nullptr)
-    {
-        Node *tempptr = head;
-        head = head->next;
-        tempptr->next = nullptr;
-        delete[] tempptr;
-    }
-}
+Queuetp<Type>::~Queuetp() {}
 
 template <typename Type>
 bool Queuetp<Type>::enqueue(const Type &val)
@@ -70,7 +52,7 @@ bool Queuetp<Type>::enqueue(const Type &val)
         node->next = nullptr;
         node->data = val;
         head = tail = node; // caution here,
-                            // only make head = node; is incorrect
+                            // only make "head = node" is incorrect
     }
     else
     {
@@ -84,7 +66,7 @@ bool Queuetp<Type>::enqueue(const Type &val)
 }
 
 template <typename Type>
-bool Queuetp<Type>::dequeue(const Type &val)
+bool Queuetp<Type>::dequeue(Type &val)
 {
     if (isempty())
     {
@@ -96,6 +78,7 @@ bool Queuetp<Type>::dequeue(const Type &val)
         Node *tempptr = head;
         head = head->next;
         tempptr->next = nullptr;
+        val = tempptr->data;
         delete[] tempptr;
     }
     return true;
