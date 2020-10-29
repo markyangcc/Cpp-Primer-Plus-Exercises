@@ -1,23 +1,30 @@
-#ifndef WORKERMI_H_
-#define WORKERMI_H_
+
+#ifndef CPP_WORKERMI_H
+#define CPP_WORKERMI_H
 
 #include <string>
 
-class Worker // an abstract base class
+class Worker
 {
+
 private:
     std::string fullname;
     long id;
 
 protected:
     virtual void Data() const;
+
     virtual void Get();
 
 public:
     Worker() : fullname("no one"), id(0L) {}
-    Worker(const std::string &s, long n) : fullname(s), id(n) {}
+
+    //    Worker(const std::string &s, long n) : fullname(s), id(n) {}
+    Worker(std::string s, long n) : fullname(std::move(s)), id(n) {}
+
     virtual ~Worker() = 0; // pure virtual function
     virtual void Set() = 0;
+
     virtual void Show() const = 0;
 };
 
@@ -27,15 +34,20 @@ private:
     int panache;
 
 protected:
-    void Data() const;
-    void Get();
+    void Data() const override;
+
+    void Get() override;
 
 public:
     Waiter() : Worker(), panache(0) {}
+
     Waiter(const std::string &s, long n, int p = 0) : Worker(s, n), panache(p) {}
+
     Waiter(const Worker &wk, int p = 0) : Worker(wk), panache(p) {}
-    void Set();
-    void Show() const;
+
+    void Set() override;
+
+    void Show() const override;
 };
 
 class Singer : virtual public Worker
@@ -44,19 +56,23 @@ protected:
     enum
     {
         other,
-        alto,
+        alt,
         contralto,
         soprano,
         bass,
         baritone,
-        tenor
+        tenor,
+
     };
+
     enum
     {
         Vtypes = 7
     };
-    void Data() const;
-    void Get();
+
+    void Data() const override;
+
+    void Get() override;
 
 private:
     static const char *pv[Vtypes]; // string equivs of voice types
@@ -64,22 +80,28 @@ private:
 
 public:
     Singer() : Worker(), voice(other) {}
+
     Singer(const std::string &s, long n, int v = other)
         : Worker(s, n), voice(v) {}
+
     Singer(const Worker &wk, int v = other) : Worker(wk), voice(v) {}
-    void Set();
-    void Show() const;
+
+    void Set() override;
+
+    void Show() const override;
 };
 
 // multiple inheritance
 class SingingWaiter : public Waiter, public Singer
 {
 protected:
-    void Data() const;
-    void Get();
+    void Data() const override;
+
+    void Get() override;
 
 public:
     SingingWaiter() {}
+
     // apparently constructing Waiter before Singer in the
     // member initializer list matters to my complier since
     // Waiter was listed before Singer regarding MI
@@ -94,9 +116,10 @@ public:
 
     SingingWaiter(const Singer &wt, int p = 0)
         : Worker(wt), Waiter(wt, p), Singer(wt) {}
-        
-    void Set();
-    void Show() const;
+
+    void Set() override;
+
+    void Show() const override;
 };
 
-#endif
+#endif //CPP_WORKER_H

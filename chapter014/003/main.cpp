@@ -1,8 +1,9 @@
 #include <cstring>
 #include <iostream>
 
+#include "Workermi.h"
 #include "queuetp.h"
-#include "workermi.cpp"
+
 const int SIZE = 5;
 
 int main()
@@ -24,7 +25,7 @@ int main()
                  << "w: waiter  s: singer  "
                  << "t: singing waiter  q: quit" << endl;
             cin >> choice;
-            while (strchr("wstq", choice) == NULL)
+            while (strchr("wstq", choice) == nullptr)
             {
                 cout << "Please enter a w, s, t, or q: ";
                 cin >> choice;

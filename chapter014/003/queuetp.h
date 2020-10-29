@@ -1,3 +1,10 @@
+//
+// Created by mark on 10/29/20.
+//
+
+#ifndef CPP_QUEUETP_H
+#define CPP_QUEUETP_H
+
 #ifndef QUEUETP_H_
 #define QUEUETP_H_
 
@@ -21,10 +28,12 @@ public:
     Queuetp();
 
     ~Queuetp();
+
     bool enqueue(const Type &val);
+
     bool dequeue(Type &val);
+
     bool isempty();
-    Type peek() const;
 };
 
 template <typename Type>
@@ -35,7 +44,7 @@ Queuetp<Type>::Queuetp()
 }
 
 template <typename Type>
-Queuetp<Type>::~Queuetp() {}
+Queuetp<Type>::~Queuetp() = default;
 
 template <typename Type>
 bool Queuetp<Type>::enqueue(const Type &val)
@@ -52,7 +61,7 @@ bool Queuetp<Type>::enqueue(const Type &val)
         node->next = nullptr;
         node->data = val;
         head = tail = node; // caution here,
-                            // only make "head = node" is incorrect
+        // only make "head = node" is incorrect
     }
     else
     {
@@ -95,10 +104,6 @@ bool Queuetp<Type>::isempty()
         return false;
 }
 
-template <typename Type>
-Type Queuetp<Type>::peek() const
-{
-    return head->data;
-}
-
 #endif
+
+#endif //CPP_QUEUETP_H
