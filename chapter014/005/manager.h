@@ -1,16 +1,12 @@
-//
-// Created by mark on 10/30/20.
-//
-
 #ifndef UNTITLED_MANAGER_H
 #define UNTITLED_MANAGER_H
 
 #include "emp.h"
 
-class manager : virtual public abstr_emp {
-
+class manager : virtual public abstr_emp
+{
 private:
-    int inchargeof;//number of abstr_emp managed
+    int inchargeof; //number of abstr_emp managed
 protected:
     int InChargeOf() const { return inchargeof; }
 
@@ -29,6 +25,5 @@ public:
 
     void SetAll() override;
 };
-
 
 #endif //UNTITLED_MANAGER_H
