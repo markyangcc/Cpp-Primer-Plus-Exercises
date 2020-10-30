@@ -8,25 +8,21 @@
 using std::string;
 
 class Person {
-private:
+protected:
     string firstname;
     string lastname;
 
 public:
     Person();
 
-    Person(const Person &pe);
-
     ~Person();
 
-    void Show() const;
-
-    //TODO: overloading operate=()
+    virtual void Show() const;
 };
 
-Person::Person() {}
 
-Person::Person(const Person &pe) {
+
+Person::Person() {
     using std::cin;
     using std::cout;
     using std::endl;
@@ -37,7 +33,7 @@ Person::Person(const Person &pe) {
     cin >> lastname;
 }
 
-Person::~Person() {}
+Person::~Person() = default;
 
 void Person::Show() const {
     using std::cout;
