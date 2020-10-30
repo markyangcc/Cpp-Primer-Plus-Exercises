@@ -10,7 +10,7 @@
 class manager : virtual public abstr_emp {
 
 private:
-    int inchargeof{};//number of abstr_emp managed
+    int inchargeof;//number of abstr_emp managed
 protected:
     int InChargeOf() const { return inchargeof; }
 

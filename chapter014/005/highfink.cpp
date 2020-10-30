@@ -26,8 +26,8 @@ highfink::highfink(const manager &m, const std::string &rpo) : manager(m), fink(
 
 }
 
-highfink::highfink(abstr_emp h) : abstr_emp(h), manager(h, manager::InChargeOf()), fink(h, fink::ReportsTo()) {
 
+highfink::highfink(const highfink &h) : abstr_emp(h), manager(h), fink(h) {
 
 }
 
@@ -35,10 +35,18 @@ void highfink::ShowAll() const {
     using std::cout;
     using std::endl;
 
-    cout << "You have reach here." << endl;
+    manager::ShowAll();
+    cout << "Reportsto:" << fink::ReportsTo() << std::endl;
 
 }
 
 void highfink::SetAll() {
+
+    manager::SetAll();
+
+    std::cout << "Enter reportsto: ";
+    std::cin >> fink::ReportsTo();
+    while (std::cin.get() != '\n')
+        continue;
 
 }

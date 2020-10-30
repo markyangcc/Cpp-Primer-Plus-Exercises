@@ -27,7 +27,22 @@ void abstr_emp::ShowAll() const {
 }
 
 void abstr_emp::SetAll() {
-//TODO:
+
+    using std::cout;
+    using std::cin;
+
+    cout << "Enter first name: ";
+    cin >> fname;
+    while (cin.get() != '\n')
+        continue;
+
+    cout << "Enter last name: ";
+    cin >> lname;
+    while (cin.get() != '\n')
+        continue;
+
+    cout << "Enter the job: ";
+    getline(cin, job);
 }
 
 abstr_emp::~abstr_emp() = default;

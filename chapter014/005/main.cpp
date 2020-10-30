@@ -33,12 +33,12 @@ int main() {
     cin.get();
 
     highfink hf2;
-    hf2.ShowAll();
+    hf2.SetAll();
 
     cout << "Using an abstr_emp * pointer:" << endl;
     abstr_emp *tri[4] = {&em, &fi, &hf, &hf2};
 
-    for (auto & i : tri) {
+    for(auto & i : tri) {
         i->ShowAll();
     }
 

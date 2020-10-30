@@ -5,7 +5,7 @@
 #include "manager.h"
 #include "emp.h"
 
-manager::manager() = default;
+manager::manager() : abstr_emp(), inchargeof(0) {}
 
 
 manager::manager(const std::string &fn, const std::string &ln, const std::string &j, int ico) : abstr_emp(fn, ln, j) {
@@ -30,6 +30,14 @@ void manager::ShowAll() const {
 
 
 void manager::SetAll() {
+
+
+    abstr_emp::SetAll();
+
+    std::cout << "Enter inchargeof: ";
+    std::cin >> inchargeof;
+    while (std::cin.get() != '\n')
+        continue;
 
 }
 

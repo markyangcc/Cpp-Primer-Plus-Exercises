@@ -21,11 +21,11 @@ public:
 
     highfink(const manager &m, const std::string &rpo);
 
-    explicit highfink(abstr_emp h);
+    explicit highfink(const highfink &h);
 
     void ShowAll() const override;
 
-    virtual void SetAll();
+    void SetAll() override;
 };
 
 

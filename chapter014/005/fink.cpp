@@ -29,4 +29,11 @@ void fink::ShowAll() const {
 
 void fink::SetAll() {
 
+    abstr_emp::SetAll();
+
+    std::cout << "Enter reportsto: ";
+    std::cin >> reportsto;
+    while (std::cin.get() != '\n')
+        continue;
+
 }
