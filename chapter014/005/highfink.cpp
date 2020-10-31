@@ -10,7 +10,7 @@ highfink::highfink(const std::string &fn, const std::string &ln, const std::stri
 
 highfink::highfink(const abstr_emp &e, const std::string &rpo, int ico) : abstr_emp(e), manager(e, ico), fink(e, rpo) {}
 
-highfink::highfink(const fink &f, int ico) : fink(f), manager(f, ico) {}
+highfink::highfink(const fink &f, int ico) : manager(f, ico), fink(f) {}
 
 highfink::highfink(const manager &m, const std::string &rpo) : manager(m), fink(m, rpo) {}
 
@@ -28,7 +28,7 @@ void highfink::SetAll()
 
     std::cout << "Enter reportsto: ";
     std::cin >> fink::ReportsTo();
-    
+
     while (std::cin.get() != '\n')
         continue;
 }
