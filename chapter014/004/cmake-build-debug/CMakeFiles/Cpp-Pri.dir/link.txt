@@ -1,1 +1,0 @@
-/usr/bin/clang++  -g   CMakeFiles/Cpp-Pri.dir/main.cpp.o  -o Cpp-Pri 

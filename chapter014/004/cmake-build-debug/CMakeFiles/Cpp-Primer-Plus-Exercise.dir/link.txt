@@ -1,1 +1,0 @@
-/usr/bin/clang++  -g   CMakeFiles/Cpp-Primer-Plus-Exercise.dir/main.cpp.o  -o Cpp-Primer-Plus-Exercise 
