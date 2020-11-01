@@ -3,39 +3,22 @@
 #define TV_H_
 
 class Remote;
-class Tv
-{
-private:
-  int state; //on or off
+class Tv {
+ private:
+  int state;  // on or off
   int volume;
   int maxchannel;
-  int channel; //current channel setting
-  int mode;    //broadcast or cable
-  int input;   //Tv or Dvd
+  int channel;  // current channel setting
+  int mode;     // broadcast or cable
+  int input;    // Tv or Dvd
 
-public:
-  friend class Remote; //Remote can access private parts
+ public:
+  friend class Remote;  // Remote can access private parts
 
-  enum
-  {
-    Off,
-    On
-  };
-  enum
-  {
-    Minval,
-    Maxval = 20
-  };
-  enum
-  {
-    Antenna,
-    Cable
-  };
-  enum
-  {
-    TV,
-    DVD
-  };
+  enum { Off, On };
+  enum { Minval, Maxval = 20 };
+  enum { Antenna, Cable };
+  enum { TV, DVD };
 
   Tv(int s = Off, int mc = 125);
   void onoff();
@@ -48,26 +31,22 @@ public:
   void set_mode();
   void set_input();
 
-  void set_remote_mode(Remote &r) ;
+  void set_remote_mode(Remote &r);
 
-  void settings() const; //display all settings
+  void settings() const;  // display all settings
 };
 
-class Remote
-{
-private:
-  int mode; //regular or interactive mode
+class Remote {
+ private:
+  int mode;  // regular or interactive mode
   int mode_b;
-public:
+
+ public:
   friend class Tv;
 
-  enum
-  {
-    Regular,
-    Interactive
-  }; //Remote mode
+  enum { Regular, Interactive };  // Remote mode
 
-  Remote(int m = Tv::TV) ;
+  Remote(int m = Tv::TV,int m_b = Regular);
   bool volup(Tv &t);
   bool voldown(Tv &t);
   void onoff(Tv &t);
@@ -79,4 +58,4 @@ public:
   void show_mode() const;
 };
 
-#endif //TV_H_
+#endif  // TV_H_
