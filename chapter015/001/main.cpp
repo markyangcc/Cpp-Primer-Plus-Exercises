@@ -2,12 +2,11 @@
 // Created by mark on 11/1/20.
 //
 
-#include "Tv.h"
 #include <iostream>
 
-int main()
-{
+#include "Tv.h"
 
+int main() {
   using std::cout;
   using std::endl;
 
@@ -19,11 +18,9 @@ int main()
   s42.onoff();
   s42.chanup();
 
-  cout << endl
-       << "Adjust settings for 42 Tv: " << endl;
+  cout << endl << "Adjust settings for 42 Tv: " << endl;
   s42.chanup();
-  cout << endl
-       << "Adjusted settings for 42 Tv: " << endl;
+  cout << endl << "Adjusted settings for 42 Tv: " << endl;
   s42.settings();
 
   Remote grey;
@@ -31,16 +28,14 @@ int main()
   grey.volup(s42);
   grey.volup(s42);
 
-  cout << endl
-       << "42 settings after using remote: " << endl;
+  cout << endl << "42 settings after using remote: " << endl;
   s42.settings();
 
   Tv s58(Tv::On);
   s58.set_mode();
   grey.set_chan(s58, 28);
 
-  cout << endl
-       << "58 settings: " << endl;
+  cout << endl << "58 settings: " << endl;
   s58.settings();
 
   return 0;

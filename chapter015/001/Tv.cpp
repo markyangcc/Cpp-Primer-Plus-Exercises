@@ -3,31 +3,27 @@
 //
 
 #include "Tv.h"
+
 #include <iostream>
 
-Tv::Tv(int s, int mc) : state(s), volume(5), maxchannel(mc), channel(2), mode(Cable), input(TV) {}
+Tv::Tv(int s, int mc)
+    : state(s), volume(5), maxchannel(mc), channel(2), mode(Cable), input(TV) {}
 void Tv::onoff() { state = (state == On) ? Off : On; }
 bool Tv::ison() const { return state == On; }
 
-bool Tv::volup()
-{
-  if (volume < Tv::Maxval)
-  {
+bool Tv::volup() {
+  if (volume < Tv::Maxval) {
     volume++;
     return true;
-  }
-  else
+  } else
     return false;
 }
 
-bool Tv::voldown()
-{
-  if (volume > Tv::Minval)
-  {
+bool Tv::voldown() {
+  if (volume > Tv::Minval) {
     volume--;
     return true;
-  }
-  else
+  } else
     return false;
 }
 
@@ -37,29 +33,26 @@ void Tv::chandown() {}
 void Tv::set_mode() { mode = (mode == Antenna) ? Cable : Antenna; }
 void Tv::set_input() { (input = (input == TV) ? DVD : TV); }
 
-void Tv::set_remote_mode(Remote &r)
-{
+void Tv::set_remote_mode(Remote &r) {
   r.mode_b = ((r.mode_b == Remote::Regular) ? r.Interactive : r.Regular);
 }
 
-void Tv::settings() const
-{
+void Tv::settings() const {
   using std::cout;
   using std::endl;
 
   cout << "State: " << ((state == On) ? "Off" : "On") << endl;
 
-  if (state)
-  {
+  if (state) {
     cout << "Volume: " << volume << endl
          << "Channel: " << channel << endl
          << "Mode: " << ((mode == Antenna) ? "Cable" : "Antenna") << endl
          << "Input: " << ((input == TV) ? "DVD" : "TV") << endl;
   }
 
-} //display all settings
+}  // display all settings
 
-//Implement Remote methods
+// Implement Remote methods
 
 Remote::Remote(int m) : mode(m) {}
 bool Remote::volup(Tv &t) { return t.volup(); }
@@ -70,7 +63,6 @@ void Remote::chandown(Tv &t) { return t.chandown(); }
 void Remote::set_chan(Tv &t, int c) { t.channel = c; }
 void Remote::set_input(Tv &t) { t.set_input(); }
 
-void Remote::show_mode() const
-{
+void Remote::show_mode() const {
   std::cout << "You current Remote mode: " << Remote::mode << std::endl;
 }
