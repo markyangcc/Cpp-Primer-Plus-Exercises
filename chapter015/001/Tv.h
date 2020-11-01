@@ -46,7 +46,7 @@ class Remote {
 
   enum { Regular, Interactive };  // Remote mode
 
-  Remote(int m = Tv::TV);
+  Remote(int m = Tv::TV,int m_b = Regular);
   bool volup(Tv &t);
   bool voldown(Tv &t);
   void onoff(Tv &t);

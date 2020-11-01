@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "Tv.h"
+#include "Tv.cpp"
 
 int main() {
   using std::cout;
@@ -28,12 +28,38 @@ int main() {
   grey.volup(s42);
   grey.volup(s42);
 
+  cout << "Test for new remote mode feature(When Tv is On)---------------------"
+       << endl;
+  cout << "Remote grey state: " << endl;
+  grey.show_mode();
+
+  cout << endl;
+
+  s42.set_remote_mode(grey);
+  cout << "After set, remote grey state: " << endl;
+  grey.show_mode();
+  cout << "Test new feature end(When Tv is On)---------------------------------"
+       << endl;
+
   cout << endl << "42 settings after using remote: " << endl;
   s42.settings();
 
   Tv s58(Tv::On);
   s58.set_mode();
   grey.set_chan(s58, 28);
+
+  cout << "Test for new remote mode feature(When Tv is Off)--------------"
+       << endl;
+  cout << "Remote grey state: " << endl;
+  grey.show_mode();
+
+  cout << endl;
+
+  s42.set_remote_mode(grey);
+  cout << "After set, remote grey state: " << endl;
+  grey.show_mode();
+  cout << "Test new feature end(When Tv is Off)-------------------------"
+       << endl;
 
   cout << endl << "58 settings: " << endl;
   s58.settings();

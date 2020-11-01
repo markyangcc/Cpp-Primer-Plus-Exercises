@@ -34,7 +34,9 @@ void Tv::set_mode() { mode = (mode == Antenna) ? Cable : Antenna; }
 void Tv::set_input() { (input = (input == TV) ? DVD : TV); }
 
 void Tv::set_remote_mode(Remote &r) {
-  r.mode_b = ((r.mode_b == Remote::Regular) ? r.Interactive : r.Regular);
+  if (ison()) {
+    r.mode_b = ((r.mode_b == Remote::Regular) ? r.Interactive : r.Regular);
+  }
 }
 
 void Tv::settings() const {
@@ -53,8 +55,7 @@ void Tv::settings() const {
 }  // display all settings
 
 // Implement Remote methods
-
-Remote::Remote(int m) : mode(m) {}
+Remote::Remote(int m, int m_b) : mode(m), mode_b(m_b) {}
 bool Remote::volup(Tv &t) { return t.volup(); }
 bool Remote::voldown(Tv &t) { return t.voldown(); }
 void Remote::onoff(Tv &t) { return t.onoff(); }
@@ -64,5 +65,6 @@ void Remote::set_chan(Tv &t, int c) { t.channel = c; }
 void Remote::set_input(Tv &t) { t.set_input(); }
 
 void Remote::show_mode() const {
-  std::cout << "You current Remote mode: " << Remote::mode << std::endl;
+  std::cout << "You current Remote mode: " << mode << std::endl;
+  std::cout << "You current Remote mode_b: " << mode_b << std::endl;
 }
