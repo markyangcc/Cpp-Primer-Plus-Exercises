@@ -8,11 +8,25 @@ Cpp Primer Plus Exercises
 
 ### How to run the program?
 
+1、From chapter-007 chapter-014 Exercise-002
+
+The drive file(Mostly named drive.cpp) have include all dependance files.(It's not a good habit)
+So when you run command like this,
 ```bash
-$ g++ <filename where main() function in> -o myprogram && ./myprogram
-	#(For Windows don't forget .exe extention)
+$ g++ file1.cpp file2.cpp drive.cpp -o drive
 ```
 
+You may run into multiple definition error.
+
+One way is replace the included .cpp file with just it's declaration file( .h ) and then run again.
+The other way is just compile the drive.cpp file, because it include all dependance already.
+
+2、From chapter 014 Exercise-003 and later
+Run command like this, I change that horrible include way
+
+```bash
+$ g++ file1.cpp file2.cpp drive.cpp -o drive
+```
 
 
 ### Why can run like a single file?
@@ -56,3 +70,13 @@ $ g++ <filename where main() function in> -o myprogram && ./myprogram
 	1 Learn to derive a class
 	2 Learn to use Abstract Base Class (ABC) to inherit
 	3 Learn when should ddefine a virtual function and when not to
+
+### chapter 14
+	1 Learn to use private inherit
+	2 Something need to be note when using multiple inherit 
+	3 Learn to use class template
+
+### chapter 15
+	1 Class can be another class's friend
+	2 Learn to use exception
+	3 Learn to use RTTI
