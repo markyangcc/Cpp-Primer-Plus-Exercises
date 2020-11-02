@@ -11,6 +11,7 @@ Cpp Primer Plus Exercises
 1、From chapter-007 chapter-014 Exercise-002
 
 The drive file(Mostly named drive.cpp) have include all dependance files.(It's not a good habit)
+
 So when you run command like this,
 ```bash
 $ g++ file1.cpp file2.cpp drive.cpp -o drive
@@ -18,7 +19,9 @@ $ g++ file1.cpp file2.cpp drive.cpp -o drive
 
 You may run into multiple definition error.
 
+#### How to solve this?
 One way is replace the included .cpp file with just it's declaration file( .h ) and then run again.
+
 The other way is just compile the drive.cpp file, because it include all dependance already.
 
 2、From chapter 014 Exercise-003 and later
